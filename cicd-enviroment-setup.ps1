@@ -46,7 +46,7 @@ Param(
 
 )
 
-Write-Host "##vso[task.setvariable variable=KUBClusterName]$OMSRGName"
+Write-Host "##vso[task.setvariable variable=OMSRGName]$OMSRGName"
 Write-Host "##vso[task.setvariable variable=OMSName]$OMSName"
 Write-Host "##vso[task.setvariable variable=OMSLocation]$OMSLocation"
 Write-Host "##vso[task.setvariable variable=KUBRGName]$KUBRGName"
