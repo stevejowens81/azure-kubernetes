@@ -37,9 +37,9 @@
 
 #>
 Param(
-    [string] $OMSName = 'BJSS-DEMO-OMS',
+    [string] $OMSName = 'BJSS-DEMO1-OMS',
     [string] $OMSLocation = 'West Europe',
-    [string] $KUBClusterName = 'BJSS-DEMO-ACS',
+    [string] $KUBClusterName = 'BJSS-DEMO1-ACS',
 	[string] $KUBLocation = 'West Europe',
     [string] $OMSRGName = $OMSName + '-RG',
     [string] $KUBRGName = $KUBClusterName + '-RG'
