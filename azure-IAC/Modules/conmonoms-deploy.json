@@ -1,0 +1,56 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.1",
+    "parameters": {
+        "OMSLocation" : {
+            "type" : "string",
+            "defaultValue" : "West Europe",
+            "allowedValues" : [ "East US", "West Europe", "Southeast Asia", "Australia Southeast" ],
+            "metadata" : {
+            "description" : "Specify the region for your Workspace"
+            }
+        },
+        "OMSRGName": {
+            "type": "string",
+            "defaultValue": "BJSS-DEMO-OMS-RG"
+        },
+        "OMSName": {
+            "type": "string",
+            "defaultValue": "BJSS-DEMO-OMS"
+        },
+        "solutionTypes": {
+            "type": "array",
+            "defaultValue": [
+                "Containers"
+            ]
+        }
+    },
+    "variables": {
+        "subscriptionid": "[subscription().subscriptionId]"
+    },
+    "resources": [
+        {
+            "apiVersion": "2015-11-01-preview",
+            "type": "Microsoft.OperationsManagement/solutions",
+            "location": "[parameters('OMSLocation')]",
+            "name": "[Concat(parameters('solutionTypes')[copyIndex()], '(', parameters('OMSName'), ')')]",
+            "id": "[Concat('/subscriptions/', variables('subscriptionId'), '/resourceGroups/', parameters('OMSRGName'), '/providers/Microsoft.OperationsManagement/solutions/', parameters('solutionTypes')[copyIndex()], '(', parameters('OMSName'),')')]",
+            "properties": {
+                "workspaceResourceId": "[Concat('/subscriptions/', variables('subscriptionId'), '/resourceGroups/', parameters('OMSRGName'), '/providers/Microsoft.OperationalInsights/workspaces/', parameters('OMSName'))]"
+            },
+            "plan": {
+                "name": "[Concat(parameters('solutionTypes')[copyIndex()], '(', parameters('OMSRGName'), ')')]",
+                "product": "[Concat('OMSGallery/', parameters('solutionTypes')[copyIndex()])]",
+                "promotionCode": "",
+                "publisher": "Microsoft"
+            },
+            "copy": {
+                "name": "solutionsCopy",
+                "count": "[length(parameters('solutionTypes'))]"
+            }
+        }
+    ],
+    "outputs": {
+        
+    }
+}
