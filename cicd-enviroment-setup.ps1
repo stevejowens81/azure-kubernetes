@@ -45,9 +45,23 @@ Param(
     [string] $KUBRGName = $KUBClusterName + '-RG'
 )
 
-Write-Host "##vso[task.setvariable variable=OMSRGName]$OMSRGName"
-Write-Host "##vso[task.setvariable variable=OMSName]$OMSName"
-Write-Host "##vso[task.setvariable variable=OMSLocation]$OMSLocation"
-Write-Host "##vso[task.setvariable variable=KUBRGName]$KUBRGName"
-Write-Host "##vso[task.setvariable variable=KUBClusterName]$KUBClusterName"
-Write-Host "##vso[task.setvariable variable=KUBLocation]$KUBLocation"
+Write-host $env:VarOMSRGName
+Write-host $env:VarOMSName
+Write-host $env:VarOMSLocation
+Write-host $env:VarKUBRGName
+Write-host $env:VarKUBClusterName
+Write-host $env:VarKUBLocation
+
+Write-Output  ("##vso[task.setvariable variable=VarOMSRGName]$OMSRGName")
+Write-Output  ("##vso[task.setvariable variable=VarOMSName]$OMSName")
+Write-Output  ("##vso[task.setvariable variable=VarOMSLocation]$OMSLocation")
+Write-Output  ("##vso[task.setvariable variable=VarKUBRGName]$KUBRGName")
+Write-Output  ("##vso[task.setvariable variable=VarKUBClusterName]$KUBClusterName")
+Write-Output  ("##vso[task.setvariable variable=VarKUBLocation]$KUBLocation")
+
+Write-host $env:VarOMSRGName
+Write-host $env:VarOMSName
+Write-host $env:VarOMSLocation
+Write-host $env:VarKUBRGName
+Write-host $env:VarKUBClusterName
+Write-host $env:VarKUBLocation
