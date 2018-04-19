@@ -42,8 +42,7 @@ Param(
     [string] $KUBClusterName = 'BJSS-DEMO-ACS',
 	[string] $KUBLocation = 'West Europe',
     [string] $OMSRGName = $OMSName + '-RG',
-    [string] $KUBRGName = $KUBClusterName + '-RG',
-
+    [string] $KUBRGName = $KUBClusterName + '-RG'
 )
 
 Write-Host "##vso[task.setvariable variable=OMSRGName]$OMSRGName"
