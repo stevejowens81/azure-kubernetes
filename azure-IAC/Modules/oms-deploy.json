@@ -4,7 +4,7 @@
     "parameters" : {
     "OMSName" : {
     "type" : "string",
-    "defaultValue" : "BJSS-DEMO-OMS",
+    "defaultValue" : "TMP-OMS",
     "metadata" : {
     "description" : "Assign a name for the Log Analytic Workspace Name"
     }

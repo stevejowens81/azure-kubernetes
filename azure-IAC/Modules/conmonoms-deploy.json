@@ -12,11 +12,11 @@
         },
         "OMSRGName": {
             "type": "string",
-            "defaultValue": "BJSS-DEMO-OMS-RG"
+            "defaultValue": "TMP-OMS-RG"
         },
         "OMSName": {
             "type": "string",
-            "defaultValue": "BJSS-DEMO-OMS"
+            "defaultValue": "TMP-OMS"
         },
         "solutionTypes": {
             "type": "array",
