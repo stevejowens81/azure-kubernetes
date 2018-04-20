@@ -43,11 +43,18 @@ Param(
     [string] $KUBClusterName = 'BJSS-DEMO-ACS',
     [string] $KUBLocation = 'West Europe',
     [string] $KUBDNSName = 'bjssdemoacs', 
-    [string] $KUBPubKey = '2048 37 25177143828604063250064581028002300472320888074175236474515166040393389909022427665957041077013892346477166690217682842622860270650742483770880182998849588189805806147848699390321464128691771934882090671914136456428428549399278579386138738350950424156364054252529664604569275648725474843992894231152141778823182961358885234463012297168434172674598859189134948941401887980347861608070994956432263492321484539982673835246566430663455476910688573763810859532905052942599849919578586271999748845059627604430935068402814378264652742447631849695000433752441721959908812098490275294396872461452362865767819422390848686094689 Azure Kubernetes Host Key',
     [string] $OMSRGName = $OMSName + '-RG',
-    [string] $KUBRGName = $KUBClusterName + '-RG'
+    [string] $KUBRGName = $KUBClusterName + '-RG',
+    [string] $KUBPubKey = '2048 37 25177143828604063250064581028002300472320888074175236474515166040393389909022427665957041077013892346477166690217682842622860270650742483770880182998849588189805806147848699390321464128691771934882090671914136456428428549399278579386138738350950424156364054252529664604569275648725474843992894231152141778823182961358885234463012297168434172674598859189134948941401887980347861608070994956432263492321484539982673835246566430663455476910688573763810859532905052942599849919578586271999748845059627604430935068402814378264652742447631849695000433752441721959908812098490275294396872461452362865767819422390848686094689 Azure Kubernetes Host Key',
+    [string] $KUBUsername = 'bjss.admin',
+    [string] $KUBVMSize = 'Standard_D2',
+    [string] $KUBNodesQTY = '3',
+    [string] $KUBmasterDnsNamePrefix= $KUBDNSName + 'mgmt',
+    [string] $KUBagentDnsNamePrefix= $KUBDNSName + 'agents',
+    [string] $KUB = ''
 )
 
+Write-host $env:subscriptionID
 Write-host $env:OMSRGName
 Write-host $env:OMSName
 Write-host $env:OMSLocation
@@ -56,7 +63,13 @@ Write-host $env:KUBClusterName
 Write-host $env:KUBLocation
 Write-host $env:KUBDNSName
 Write-host $env:KUBPubKey
+Write-host $KUBUsername
+Write-host $KUBVMSize
+Write-host $KUBNodesQTY
+Write-host $KUBmasterDnsNamePrefix
+Write-host $KUBagentDnsNamePrefix
 
+Write-Output  ("##vso[task.setvariable variable=subscriptionID]$subscriptionID")
 Write-Output  ("##vso[task.setvariable variable=OMSRGName]$OMSRGName")
 Write-Output  ("##vso[task.setvariable variable=OMSName]$OMSName")
 Write-Output  ("##vso[task.setvariable variable=OMSLocation]$OMSLocation")
@@ -65,6 +78,11 @@ Write-Output  ("##vso[task.setvariable variable=KUBClusterName]$KUBClusterName")
 Write-Output  ("##vso[task.setvariable variable=KUBLocation]$KUBLocation")
 Write-Output  ("##vso[task.setvariable variable=KUBDNSName]$KUBDNSName")
 Write-Output  ("##vso[task.setvariable variable=KUBPubKey]$KUBPubKey")
+Write-Output  ("##vso[task.setvariable variable=KUBUsername]$KUBUsername")
+Write-Output  ("##vso[task.setvariable variable=KUBVMSize]$KUBVMSize")
+Write-Output  ("##vso[task.setvariable variable=KUBNodesQTY]$KUBNodesQTY")
+Write-Output  ("##vso[task.setvariable variable=KUBmasterDnsNamePrefix]$KUBmasterDnsNamePrefix")
+Write-Output  ("##vso[task.setvariable variable=KUBagentDnsNamePrefix]$KUBagentDnsNamePrefix")
 
 Write-host $env:OMSRGName
 Write-host $env:OMSName
@@ -74,3 +92,11 @@ Write-host $env:KUBClusterName
 Write-host $env:KUBLocation
 Write-host $env:KUBDNSName
 Write-host $env:KUBPubKey
+Write-host $KUBUsername
+Write-host $KUBVMSize
+Write-host $KUBNodesQTY
+Write-host $KUBmasterDnsNamePrefix
+Write-host $KUBagentDnsNamePrefix
+
+
+-resourceName $(KUBClusterName) -masterDnsNamePrefix $(KUBmasterDnsNamePrefix) -agentDnsNamePrefix $(KUBagentDnsNamePrefix) -agentCount $(KUBNodesQTY) -agentVMSize $(KUBVMSize) -linuxAdminUsername $(KUBUsername) -windowsAgentAdminUsername $(KUBUsername) -sshRSAPublicKey $(KUBPubKey) -servicePrincipalClientId $(SvcPrincipleCliID) -servicePrincipalClientSecret $(SvcPrincipleCliSec)

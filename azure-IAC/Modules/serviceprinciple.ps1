@@ -11,15 +11,20 @@
  .PARAMETER KUBRGName
     x.
 
+.PARAMETER Location
+    x.
+
  .PARAMETER subscriptionID
     x.
 #>
 Param(
-    [string] [Parameter(Mandatory=$true)] $KUBRGName,
-    [string] [Parameter(Mandatory=$true)] $subscriptionID
+    [string] $KUBRGName = $env:KUBRGName,
+    [string] $KUBLocation = $env:KUBLocation,
+    [string] $subscriptionID = $env:subscriptionID
     )
 
 #Create a Service Principle
+az group create --name $KUBRGName --location "$KUBLocation"
 $SP=$(az ad sp create-for-rbac --role='Contributor' --scopes='/subscriptions/'$subscriptionID'/resourceGroups/'$KUBRGName)
 
 $ServicePrinciple = $SP | ConvertFrom-Json
@@ -34,4 +39,4 @@ Write-Output  ("##vso[task.setvariable variable=SvcPrincipleCliID]$SvcPrincipleC
 Write-Output  ("##vso[task.setvariable variable=SvcPrincipleCliSec]$SvcPrincipleCliSec")
 
 Write-host $env:SvcPrincipleCliID
-Write-host $env:SvcPrincipleCliSec
+Write-host $env:SvcPrincipleCliSec4
