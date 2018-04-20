@@ -97,6 +97,3 @@ Write-host $KUBVMSize
 Write-host $KUBNodesQTY
 Write-host $KUBmasterDnsNamePrefix
 Write-host $KUBagentDnsNamePrefix
-
-
--resourceName $(KUBClusterName) -masterDnsNamePrefix $(KUBmasterDnsNamePrefix) -agentDnsNamePrefix $(KUBagentDnsNamePrefix) -agentCount $(KUBNodesQTY) -agentVMSize $(KUBVMSize) -linuxAdminUsername $(KUBUsername) -windowsAgentAdminUsername $(KUBUsername) -sshRSAPublicKey $(KUBPubKey) -servicePrincipalClientId $(SvcPrincipleCliID) -servicePrincipalClientSecret $(SvcPrincipleCliSec)
