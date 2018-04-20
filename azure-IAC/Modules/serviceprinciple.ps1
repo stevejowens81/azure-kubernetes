@@ -40,4 +40,4 @@ Write-Output  ("##vso[task.setvariable variable=SvcPrincipleCliID]$SvcPrincipleC
 Write-Output  ("##vso[task.setvariable variable=SvcPrincipleCliSec]$SvcPrincipleCliSec")
 
 Write-host $env:SvcPrincipleCliID
-Write-host $env:SvcPrincipleCliSec4
+Write-host $env:SvcPrincipleCliSec
