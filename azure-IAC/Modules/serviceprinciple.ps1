@@ -18,14 +18,15 @@
     x.
 #>
 Param(
-    [string] $KUBRGName = $env:KUBRGName,
-    [string] $KUBLocation = $env:KUBLocation,
-    [string] $subscriptionID = $env:subscriptionID
+    [string] $KUBRGName,
+    [string] $KUBClusterName,
+    [string] $KUBLocation,
+    [string] $subscriptionID
     )
 
 #Create a Service Principle
 az group create --name $KUBRGName --location "$KUBLocation"
-$SP=$(az ad sp create-for-rbac --role='Contributor' --scopes='/subscriptions/'$subscriptionID'/resourceGroups/'$KUBRGName)
+$SP=$(az ad sp create-for-rbac --n "$KUBClusterName" --role='Contributor' --scopes='/subscriptions/'$subscriptionID'/resourceGroups/'$KUBRGName)
 
 $ServicePrinciple = $SP | ConvertFrom-Json
 
