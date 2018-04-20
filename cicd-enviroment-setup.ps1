@@ -37,6 +37,7 @@
 
 #>
 Param(
+    [string] $subscriptionID='1e6bdb83-67fd-4c1a-a023-25dfaaa56331',
     [string] $OMSName = 'BJSS-DEMO-OMS',
     [string] $OMSLocation = 'West Europe',
     [string] $KUBClusterName = 'BJSS-DEMO-ACS',
