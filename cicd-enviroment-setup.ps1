@@ -41,7 +41,7 @@ Param(
     [string] $OMSName = 'BJSS-DEMO-OMS',
     [string] $OMSLocation = 'West Europe',
     [string] $KUBClusterName = 'BJSS-DEMO-ACS',
-    [string] $KUBLocation = 'West Europe',
+    [string] $KUBLocation = 'WestEurope',
     [string] $KUBDNSName = 'bjssdemoacs', 
     [string] $OMSRGName = $OMSName + '-RG',
     [string] $KUBRGName = $KUBClusterName + '-RG',
