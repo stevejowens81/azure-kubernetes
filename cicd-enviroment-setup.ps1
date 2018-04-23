@@ -91,6 +91,20 @@ Write-host $env:KUBClusterName
 Write-host $env:KUBLocation
 Write-host $env:KUBDNSName
 Write-host $env:KUBPubKey
+Write-host $env:KUBUsername
+Write-host $env:KUBVMSize
+Write-host $env:KUBNodesQTY
+Write-host $env:KUBmasterDnsNamePrefix
+Write-host $env:KUBagentDnsNamePrefix
+
+Write-host $OMSRGName
+Write-host $OMSName
+Write-host $OMSLocation
+Write-host $KUBRGName
+Write-host $KUBClusterName
+Write-host $KUBLocation
+Write-host $KUBDNSName
+Write-host $KUBPubKey
 Write-host $KUBUsername
 Write-host $KUBVMSize
 Write-host $KUBNodesQTY
