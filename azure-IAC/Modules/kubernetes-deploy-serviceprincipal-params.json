@@ -5,7 +5,7 @@
         "servicePrincipalClientId": {
             "reference": {
               "keyVault": {
-                "id": "/subscriptions/[subscription().subscriptionId]/resourceGroups/examplegroup/providers/Microsoft.KeyVault/vaults/BJSS-KEYVAULT"
+                "id": "/subscriptions/1e6bdb83-67fd-4c1a-a023-25dfaaa56331/resourceGroups/KeyVault-RG/providers/Microsoft.KeyVault/vaults/BJSS-KEYVAULT"
               },
               "secretName": "SP-KUB-SOCKSHOP-APID"
             }
@@ -13,7 +13,7 @@
         "servicePrincipalClientSecret": {
             "reference": {
               "keyVault": {
-                "id": "/subscriptions/[subscription().subscriptionId]/resourceGroups/examplegroup/providers/Microsoft.KeyVault/vaults/BJSS-KEYVAULT"
+                "id": "/subscriptions/1e6bdb83-67fd-4c1a-a023-25dfaaa56331/resourceGroups/KeyVault-RG/providers/Microsoft.KeyVault/vaults/BJSS-KEYVAULT"
               },
               "secretName": "SP-KUB-SOCKSHOP-PASS"
             }
