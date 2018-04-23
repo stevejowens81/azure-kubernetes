@@ -1,0 +1,22 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.1",
+    "parameters": {
+        "servicePrincipalClientId": {
+            "reference": {
+              "keyVault": {
+                "id": "/subscriptions/[subscription().subscriptionId]/resourceGroups/examplegroup/providers/Microsoft.KeyVault/vaults/BJSS-KEYVAULT"
+              },
+              "secretName": "SP-KUB-SOCKSHOP-APID"
+            }
+        },
+        "servicePrincipalClientSecret": {
+            "reference": {
+              "keyVault": {
+                "id": "/subscriptions/[subscription().subscriptionId]/resourceGroups/examplegroup/providers/Microsoft.KeyVault/vaults/BJSS-KEYVAULT"
+              },
+              "secretName": "SP-KUB-SOCKSHOP-PASS"
+            }
+        }
+    }
+}
