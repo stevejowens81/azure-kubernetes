@@ -50,8 +50,7 @@ Param(
     [string] $KUBVMSize = 'Standard_D2',
     [string] $KUBNodesQTY = '3',
     [string] $KUBmasterDnsNamePrefix= $KUBDNSName + 'mgmt',
-    [string] $KUBagentDnsNamePrefix= $KUBDNSName + 'agents',
-    [string] $KUB = ''
+    [string] $KUBagentDnsNamePrefix= $KUBDNSName + 'agents'
 )
 
 Write-host $env:subscriptionID
