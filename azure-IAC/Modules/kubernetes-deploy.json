@@ -31,7 +31,7 @@
         },
         "agentVMSize": {
             "type": "string",
-            "defaultValue": "Standard_D2",
+            "defaultValue": "Standard_DS2_v2",
             "allowedValues": [
                 "Standard_A10",
                 "Standard_A11",
