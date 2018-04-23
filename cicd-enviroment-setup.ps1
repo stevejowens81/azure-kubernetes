@@ -63,11 +63,11 @@ Write-host $env:KUBClusterName
 Write-host $env:KUBLocation
 Write-host $env:KUBDNSName
 Write-host $env:KUBPubKey
-Write-host $KUBUsername
-Write-host $KUBVMSize
-Write-host $KUBNodesQTY
-Write-host $KUBmasterDnsNamePrefix
-Write-host $KUBagentDnsNamePrefix
+Write-host $env:KUBUsername
+Write-host $env:KUBVMSize
+Write-host $env:KUBNodesQTY
+Write-host $env:KUBmasterDnsNamePrefix
+Write-host $env:KUBagentDnsNamePrefix
 
 Write-Output  ("##vso[task.setvariable variable=subscriptionID]$subscriptionID")
 Write-Output  ("##vso[task.setvariable variable=OMSRGName]$OMSRGName")
